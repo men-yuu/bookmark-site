@@ -319,10 +319,10 @@ document.addEventListener("DOMContentLoaded", () => {
               const faviconImg = h3.querySelector(".favicon img");
               if (faviconImg) {
                 if (item["Favicon Filename"]) {
-                  faviconImg.src = `/favicons/${item["Favicon Filename"]}`;
+                  faviconImg.src = `favicons/${item["Favicon Filename"]}`;
                   faviconImg.alt = `${item.Title || "Site"} favicon`;
                 } else {
-                  faviconImg.src = `/favicons/default.png`;
+                  faviconImg.src = `favicons/default.png`;
                   faviconImg.alt = "default favicon";
                 }
               }
