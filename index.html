@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>men-yuu Bookmarks | Curated Links & Resources</title>
+    <meta
+      name="description"
+      content="A curated collection of bookmarks for programming, design, and learning. Search, filter and quickly access resources."
+    />
+    <meta
+      name="keywords"
+      content="web resources, programming, design, japanese learning, productivity"
+    />
+    <meta name="author" content="men-yuu" />
+    <link rel="canonical" href="https://yourdomain.example/" />
+    <meta name="theme-color" content="#3AA99F" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/favicons/pwa-192.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="My Bookmarks — curated links" />
+    <meta
+      property="og:description"
+      content="A curated collection of bookmarks for programming, design, and learning."
+    />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/icons/icon-512.png"
+    />
+    <meta property="og:url" content="https://yourdomain.example/" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@yourTwitterHandle" />
+    <meta name="twitter:title" content="My Bookmarks — curated links" />
+    <meta
+      name="twitter:description"
+      content="A curated collection of bookmarks for programming, design, and learning."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourdomain.com/icons/icon-512.png"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "My Bookmarks",
+        "url": "https://yourdomain.example/",
+        "description": "A curated collection of bookmarks for programming, design, and learning.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Your Name"
+        }
+      }
+    </script>
+
+    <script type="text/javascript" src="app.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0" defer></script>
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <nav id="sidebar">
+      <ul id="sidebar-list">
+        <li class="sidebar-header">
+          <a href="/" class="logo">men-yuu's bookmarks</a>
+          <button id="theme-switch" aria-label="Toggle theme">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+            >
+              <path
+                d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+            >
+              <path
+                d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"
+              />
+            </svg>
+          </button>
+        </li>
+
+        <!-- Dynamic sidebar items -->
+      </ul>
+      <!-- Dynamic sidebar items go here supposedly -->
+      <ul class="sidebar-scroll"></ul>
+
+      <!-- Sidebar footer button -->
+      <button id="credits-btn" class="sidebar-footer-btn">Credits</button>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main id="main">
+      <header class="hero">
+        <div class="hero-content">
+          <h1>men-yuu's bookmarks</h1>
+          <p class="subtitle">Bookmark site with private collections <br/>(Unlock by following instructions in Credits)</p>
+
+          <div class="search-bar">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search bookmarks..."
+              aria-label="Search bookmarks"
+            />
+            <button id="search-clear" aria-label="Clear search">×</button>
+          </div>
+        </div>
+      </header>
+
+      <div id="content"><!-- Sections injected by JS --></div>
+
+      <!-- Credits overlay (hidden by default) -->
+      <div id="credits-overlay" class="overlay">
+        <div class="overlay-content">
+          <button class="close-overlay">&times;</button>
+          <h2>Site Credits</h2>
+          <p>
+            Designed and built by <strong>men-yuu</strong>.<br />
+            Favicons from
+            <a href="https://favicon.io" target="_blank">favicon.io</a>.<br />
+            Font: IBM Plex Mono from
+            <a href="https://fonts.google.com/" target="_blank">Google Fonts</a
+            >. <br />
+            <br />
+            <span id="unlock-trigger"
+              >Private bookmarks require unlocking with
+              <a href="#" id="unlock-link">password</a>🔒.</span
+            >
+            <button id="lock-button" hidden type="button">Lock</button>
+          </p>
+          <p>
+            This is a test bookmark site. The list of websites are manually
+            curated. Site descriptions are generated by ChatGPT. There are
+            private bookmarks that require a password to unlock.
+            <strong style="color: var(--accent-clr)"
+              >The password is Op3nSesame</strong
+            >.
+          </p>
+          <form id="unlock-form" hidden>
+            <input
+              type="password"
+              id="password-input"
+              placeholder="Enter password"
+              required
+            />
+            <button type="submit" class="unlock-button">Unlock</button>
+            <p id="unlock-error" hidden>Wrong password</p>
+          </form>
+          <p>
+            The site is also a PWA. You can install the site to your phone or
+            desktop to use it like an app. The rest of the text is lorem ipsum
+            just because. Duis aute irure dolor in reprehenderit in voluptate
+            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+            mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Templates -->
+    <template id="tpl-sidebar-item">
+      <li>
+        <a href="#" class="sidebar-link">
+          <span class="emoji"></span>
+          <span class="label"></span>
+        </a>
+      </li>
+    </template>
+
+    <template id="tpl-section">
+      <section class="section" id="">
+        <div class="title-container">
+          <h2></h2>
+        </div>
+        <div class="grid-container"></div>
+      </section>
+    </template>
+
+    <template id="tpl-card">
+      <a class="card" target="_blank" rel="noopener noreferrer">
+        <div class="card-content">
+          <h3>
+            <span class="favicon"><img src="" alt="favicon" /></span>
+          </h3>
+          <p></p>
+
+          <div class="bottom">
+            <p class="link"></p>
+          </div>
+        </div>
+      </a>
+    </template>
+  </body>
+</html>

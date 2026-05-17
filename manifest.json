@@ -1,0 +1,23 @@
+{
+  "name": "Bookmarks",
+  "short_name": "Bookmarks",
+  "description": "A curated bookmark site with links across design, programming, learning, and more.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10100F",
+  "theme_color": "#10100F",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
